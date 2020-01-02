@@ -260,6 +260,8 @@
             this.viewPort.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseDown);
             this.viewPort.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseMove);
             this.viewPort.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ViewPortMouseUp);
+            this.viewPort.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ViewPortKeyPress);
+
             // 
             // newToolStripMenuItem
             // 

@@ -74,17 +74,22 @@ namespace Draw
 
 		void ViewPortKeyPress(object sender, KeyEventArgs e)
 		{
-			if (e.Control && e.KeyValue == (int) 'C' )
+
+			if (e.Control && e.KeyValue == (int)'C' )
 			{
 				Clipboard.SetData(form, dialogProcessor.Selection);
 				statusBar.Items[0].Text = "Последно действие: Копиране на фигура";
 			}
-			if (e.Control && e.KeyValue == (int) 'V' )
+			if (e.Control && e.KeyValue == (int)'V' )
 			{
 				if (Clipboard.ContainsData(form))
 				{
-					object clipboardShape = Clipboard.GetData(form);
-					dialogProcessor.Paste(clipboardShape);
+					List<Shape> clipShapes = (List<Shape>)Clipboard.GetData(form);
+					foreach (var clipShape in clipShapes)
+					{
+						dialogProcessor.Paste(clipShape);
+						viewPort.Invalidate();
+					}
 					viewPort.Invalidate();
 					statusBar.Items[0].Text = "Последно действие: Поставяне на фигура";
 				}

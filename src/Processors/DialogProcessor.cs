@@ -13,9 +13,9 @@ namespace Draw
 		private bool isDragging;
 		private List <Shape> selection = new List<Shape>();
 
-		//public DialogProcessor()
-		//{
-		//}
+		public DialogProcessor()
+		{
+		}
 
 		public List<Shape> Selection {
 			get { return selection; }
